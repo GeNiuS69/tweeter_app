@@ -1,0 +1,15 @@
+<%= form_for @tweet,:method => method do |f|%>
+  <% if @tweet.errors.present? %>
+    <%= errors_for(@tweet)%>
+  <% end %>
+
+  <p>
+    <%= f.label "Enter your message:" %>
+    <br>
+    <%= f.text_area :message %>
+  </p>
+  <p>
+    <%= f.submit %>
+    <%= link_to "Back",root_path%>
+    </p>
+  <%end%>

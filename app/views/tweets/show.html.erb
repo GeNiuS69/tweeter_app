@@ -1,0 +1,67 @@
+<%= content_for :head do %>
+  <script>
+    alert("Hello");
+  </script>
+<% end %>
+<table>
+  <tr>
+    <td>
+      Message:
+    </td>
+      <td>
+        <%= @tweet.message %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Created:
+      </td>
+      <td>
+        <%= @tweet.created_at%>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Reviews:
+      </td>
+      <td>
+        <%= @tweet.counter%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Likes:
+      </td>
+      <td>
+        <%= @tweet.likes%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Comments:
+      </td>
+      <td>
+        <%= @tweet.comments_count%>
+      </td>
+    </tr>
+  </table>
+  <%if @tweet.comments.count > 0%>
+    <table border = "1" >
+      <% comments = @tweet.comments.order("created_at desc")%>
+  <% comments.each do |f|%>
+    <tr>
+      <td>
+        <%= f.message%>
+      </td>
+      <td>
+        <%= f.created_at%>
+        </td>
+    </tr>
+  <%end%>
+</table>
+<%end%>
+  <%= render "comment"%>
+  <%= link_to "Like",like_tweet_path%>
+  <%= link_to "Delete",tweet_path(@tweet),:method => :delete, :confirm => "Are you sure?"%>
+  <%= link_to "Back",root_path %>

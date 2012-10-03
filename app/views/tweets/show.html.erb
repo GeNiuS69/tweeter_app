@@ -1,8 +1,3 @@
-<%= content_for :head do %>
-  <script>
-    alert("Hello");
-  </script>
-<% end %>
 <table>
   <tr>
     <td>
@@ -49,15 +44,8 @@
   <%if @tweet.comments.count > 0%>
     <table border = "1" >
       <% comments = @tweet.comments.order("created_at desc")%>
-  <% comments.each do |f|%>
-    <tr>
-      <td>
-        <%= f.message%>
-      </td>
-      <td>
-        <%= f.created_at%>
-        </td>
-    </tr>
+      <% comments.each do |f|%>
+        <%= render "showcomment", :comment => f %>
   <%end%>
 </table>
 <%end%>

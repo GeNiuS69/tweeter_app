@@ -1,0 +1,11 @@
+    <tr>
+      <td>
+        <%= comment.message%>
+      </td>
+      <td>
+        <%= comment.created_at%>
+      </td>
+      <td>
+        <%= link_to "X", tweet_comment_path(@tweet,comment), :method => :delete %>
+      </td>
+    </tr>

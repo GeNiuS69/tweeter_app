@@ -1,4 +1,4 @@
-    <tr>
+<tr id=  <%= comment.id %> >
       <td>
         <%= comment.message%>
       </td>
@@ -6,6 +6,6 @@
         <%= comment.created_at%>
       </td>
       <td>
-        <%= link_to "X", tweet_comment_path(@tweet,comment), :method => :delete %>
+        <%= link_to "X", tweet_comment_path(@tweet,comment),:remote => true, :method => :delete %>
       </td>
     </tr>

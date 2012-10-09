@@ -2,8 +2,6 @@ class TweetsController < ApplicationController
   before_filter :update_counter, :only => :show
   def index
    @tweets = Tweet.order("created_at desc")
-
-   #render :text => "Hello!"
   end
   def new
     @tweet = Tweet.new
